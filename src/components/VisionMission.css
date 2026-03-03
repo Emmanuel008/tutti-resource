@@ -1,0 +1,174 @@
+.vision-mission {
+  padding: 2rem 1.5rem;
+  background: #ffffff;
+  color: #1a1a1a;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.vision-mission-title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.vision-mission-subtitle {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: rgba(26, 26, 26, 0.65);
+  letter-spacing: 0.02em;
+}
+
+.vision-mission-grid {
+  max-width: 56rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.vm-block {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-align: left;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.vm-block::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #c9a86c 0%, #a88b4a 100%);
+  border-radius: 12px 0 0 12px;
+}
+
+.vm-block:hover {
+  border-color: rgba(168, 139, 74, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vm-block-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+  color: #c9a86c;
+  background: rgba(201, 168, 108, 0.12);
+  border-radius: 8px;
+}
+
+.vm-icon {
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+.vm-block-heading {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+}
+
+.vm-block-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 26, 0.88);
+}
+
+.vm-vision .vm-block-icon {
+  margin-bottom: 0.4rem;
+}
+
+.vm-vision .vm-block-heading {
+  margin-bottom: 0.35rem;
+}
+
+.vm-vision .vm-block-text {
+  line-height: 1.45;
+}
+
+.vm-vision {
+  padding: 1.1rem 1.35rem;
+}
+
+.vm-mission-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgba(26, 26, 26, 0.88);
+}
+
+.vm-mission-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.vm-mission-list li:last-child {
+  margin-bottom: 0;
+}
+
+.vm-mission-list li span:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.vm-mission-check {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.2rem;
+  color: #c9a86c;
+}
+
+.vm-check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .vision-mission {
+    padding: 1.5rem 1rem;
+  }
+
+  .vision-mission-title {
+    margin-bottom: 0.35rem;
+  }
+
+  .vision-mission-subtitle {
+    margin-bottom: 1.25rem;
+  }
+
+  .vision-mission-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .vm-block {
+    padding: 1.15rem 1.2rem;
+  }
+}
