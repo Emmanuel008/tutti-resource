@@ -58,7 +58,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.25rem;
   }
 
   .about-inner {
@@ -67,7 +67,8 @@
   }
 
   .about-image-wrapper {
-    max-width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
   }
 
   .about-content {

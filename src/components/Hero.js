@@ -16,7 +16,7 @@ function Hero() {
     >
       <div className="hero-bg">
         <img
-          src="/images/more.jpeg"
+          src="/images/saba.png"
           alt="Mining and resource development"
           className="hero-image"
         />
