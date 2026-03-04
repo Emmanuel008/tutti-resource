@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import './Hero.css';
+import '../styles/Hero.css';
 
 const captionVariants = {
   hidden: { opacity: 0, y: 20 },

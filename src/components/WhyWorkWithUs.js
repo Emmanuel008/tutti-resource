@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import './WhyWorkWithUs.css';
+import '../styles/WhyWorkWithUs.css';
 
 const items = [
   { description: "Deep understanding of Tanzania's mining and energy landscape to guide your operations." },

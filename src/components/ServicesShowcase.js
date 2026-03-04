@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './ServicesShowcase.css';
+import '../styles/ServicesShowcase.css';
 
 const NUM_CASES = 4;
 

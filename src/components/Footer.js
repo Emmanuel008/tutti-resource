@@ -1,4 +1,4 @@
-import './Footer.css';
+import '../styles/Footer.css';
 
 const currentYear = new Date().getFullYear();
 
@@ -42,7 +42,7 @@ function Footer() {
           <ul className="footer-contact-list">
             <li>
               <span className="footer-contact-label">Phone:</span>{' '}
-              <a href="tel:+255776315206">+255xxxxxxxx</a>
+              <a href="tel:+255776315206">+255739969594</a>
             </li>
             <li>
               <span className="footer-contact-label">Email:</span>{' '}

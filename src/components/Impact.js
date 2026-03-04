@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import './Impact.css';
+import '../styles/Impact.css';
 
 const stats = [
   { value: '10+', label: 'Partners & companies' },
