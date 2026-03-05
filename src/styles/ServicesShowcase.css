@@ -38,7 +38,7 @@
   max-width: 72rem;
   margin: 0 auto;
   display: flex;
-  gap: 40px;
+  gap: 0;
   min-height: 520px;
   overflow: visible;
   background: #f8fafc;
@@ -49,7 +49,7 @@
 /* Left menu (capabilities list) sticks so category list stays visible while scrolling */
 .capabilities-sidebar,
 .showcase-nav {
-  width: 250px;
+  width: 160px;
   flex-shrink: 0;
   position: sticky;
   top: 100px;
@@ -93,7 +93,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border-right: 1px solid rgba(0, 0, 0, 0.08);
   background: #f8fafc;
   border-radius: 20px 0 0 20px;
 }
@@ -101,38 +100,21 @@
 .showcase-nav-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.6rem 0.75rem;
+  padding: 0.5rem 0.25rem;
   background: transparent;
   border: none;
-  border-radius: 10px;
-  color: rgba(26, 26, 26, 0.8);
+  color: rgba(26, 26, 26, 0.5);
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 400;
   text-align: left;
   cursor: default;
-  transition: background 0.2s ease, color 0.2s ease, font-weight 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .showcase-nav-item.active {
-  background: rgba(0, 0, 0, 0.06);
   color: #1a1a1a;
-  font-weight: 600;
-}
-
-.showcase-nav-dot {
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid rgba(26, 26, 26, 0.4);
-  border-radius: 50%;
-  flex-shrink: 0;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.showcase-nav-item.active .showcase-nav-dot {
-  border-color: var(--item-accent, #a88b4a);
-  background: var(--item-accent, #a88b4a);
+  font-weight: 700;
 }
 
 .showcase-nav-label {
@@ -141,7 +123,6 @@
 
 .showcase-card > .showcase-content {
   background: var(--showcase-content-bg, #f8fafc);
-  border-left: 3px solid var(--showcase-accent, #a88b4a);
   padding: 2.25rem 2.5rem;
   display: flex;
   flex-direction: column;
@@ -224,6 +205,20 @@
   background: rgba(255, 255, 255, 0.9);
 }
 
+.showcase-tag-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+}
+
+.showcase-tag-link:hover {
+  background: var(--showcase-accent, #c9a86c);
+  color: #ffffff;
+  border-color: var(--showcase-accent, #c9a86c);
+  transform: translateY(-1px);
+}
+
 .showcase-content-title {
   margin: 0 0 1rem;
   font-size: clamp(1.15rem, 2vw, 1.4rem);
@@ -283,14 +278,8 @@
   }
 
   .showcase-nav-item {
-    padding: 0.45rem 0.75rem;
+    padding: 0.4rem 0.5rem;
     font-size: 0.8rem;
-    border-radius: 999px;
-  }
-
-  .showcase-nav-dot {
-    width: 0.6rem;
-    height: 0.6rem;
   }
 
   /* Content area: no sticky on mobile */
@@ -299,16 +288,16 @@
     position: relative;
     top: auto;
     border-left: none;
-    border-top: 3px solid var(--showcase-accent, #a88b4a);
+    border-top: none;
     border-radius: 0 0 14px 14px;
     padding: 1.25rem 1rem 1.5rem;
     overflow: visible;
-    transition: background 0.35s ease, border-color 0.35s ease;
+    transition: background 0.35s ease;
   }
 
   .showcase-card > .showcase-content {
     border-left: none;
-    border-top: 3px solid var(--showcase-accent, #a88b4a);
+    border-top: none;
     border-radius: 0 0 14px 14px;
     padding: 1.25rem 1rem 1.5rem;
   }

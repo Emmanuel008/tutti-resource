@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/ServicesShowcase.css';
 
@@ -11,8 +12,14 @@ const cases = [
     label: 'Mining',
     color: '#b45309',
     image: '/images/hero1.jpeg',
-    tags: ['Mine Planning', 'Due Diligence', 'EHS Advisory', 'Compliance', 'Production Optimization'],
-    title: 'Strengthening Tanzania’s mining sector through planning, compliance, and operational excellence.',
+    tags: [
+      { label: 'Mine Planning', slug: 'mine-planning' },
+      { label: 'Due Diligence', slug: 'due-diligence' },
+      { label: 'EHS Advisory', slug: 'ehs-advisory' },
+      { label: 'Compliance', slug: 'compliance' },
+      { label: 'Production Optimization', slug: 'production-optimization' },
+    ],
+    title: "Strengthening Tanzania's mining sector through planning, compliance, and operational excellence.",
     description: 'We support small and medium-scale miners and cooperatives with technical due diligence, regulatory compliance, and environmental and safety advisory—enabling sustainable, responsible operations aligned with national standards.',
   },
   {
@@ -21,9 +28,14 @@ const cases = [
     label: 'Oil & Gas',
     color: '#0ea5e9',
     image: '/images/oil.jpeg',
-    tags: ['Technical Advisory', 'Project Coordination', 'Regulatory Guidance', 'Operational Support'],
-    title: 'Supporting oil and gas operators with technical and regulatory expertise across the value chain.',
-    description: 'From project coordination to compliance guidance, we help emerging energy operators navigate regulatory requirements and improve operational performance in Tanzania’s growing oil and gas landscape.',
+    tags: [
+      { label: 'Technical Advisory', slug: 'technical-advisory' },
+      { label: 'Project Coordination', slug: 'project-coordination' },
+      { label: 'Operational Support', slug: 'operational-support' },
+      { label: 'Regulatory Guidance', slug: 'regulatory-guidance' },
+    ],
+    title: "Supporting oil and gas operators with technical and regulatory expertise across the value chain.",
+    description: "From project coordination to compliance guidance, we help emerging energy operators navigate regulatory requirements and improve operational performance in Tanzania's growing oil and gas landscape.",
   },
   {
     id: 'financial',
@@ -31,7 +43,12 @@ const cases = [
     label: 'Financial',
     color: '#059669',
     image: '/images/finance.jpeg',
-    tags: ['Investment Readiness', 'Financial Structuring', 'Banking Facilitation', 'Advisory'],
+    tags: [
+      { label: 'Investment Readiness', slug: 'investment-readiness' },
+      { label: 'Financial Structuring', slug: 'financial-structuring' },
+      { label: 'Banking Facilitation', slug: 'banking-facilitation' },
+      { label: 'Advisory', slug: 'advisory' },
+    ],
     title: 'Enabling mining and energy projects with investment readiness and banking facilitation.',
     description: 'We provide financial structuring, investment readiness support, and banking facilitation so mining and energy projects can access capital and align with lender and investor expectations.',
   },
@@ -41,7 +58,12 @@ const cases = [
     label: 'Technology',
     color: '#7c3aed',
     image: '/images/tech.jpeg',
-    tags: ['Digital Solutions', 'Equipment Optimization', 'Training', 'Capacity Development'],
+    tags: [
+      { label: 'Digital Solutions', slug: 'digital-solutions' },
+      { label: 'Equipment Optimization', slug: 'equipment-optimization' },
+      { label: 'Capacity Development', slug: 'capacity-development' },
+      { label: 'Training', slug: 'training' },
+    ],
     title: 'Driving efficiency and capacity through technology and skills development.',
     description: 'We introduce and integrate modern mining technologies, optimize equipment performance, deliver digital solutions for operational efficiency, and run training and skills development programs for local teams.',
   },
@@ -90,101 +112,102 @@ function ServicesShowcase() {
         <h2 className="showcase-title">Our Area of Capabilities</h2>
         <div
           className="capabilities showcase-card"
-        style={{
-          '--showcase-accent': active.color,
-          '--showcase-content-bg': getCardBg(active.color),
-        }}
-      >
-        <div className="capabilities-sidebar showcase-nav" role="list" aria-label="Area of capabilities">
-          {cases.map((item, index) => (
-            <motion.div
-              key={item.id}
-              role="listitem"
-              className={`showcase-nav-item ${index === activeIndex ? 'active' : ''}`}
-              style={index === activeIndex ? { '--item-accent': item.color } : undefined}
-              aria-current={index === activeIndex ? 'true' : undefined}
-              initial={false}
-              animate={{
-                backgroundColor: index === activeIndex ? 'rgba(0, 0, 0, 0.06)' : 'transparent',
-              }}
-              transition={{ duration: 0.2 }}
-            >
-              <span className="showcase-nav-dot" />
-              <span className="showcase-nav-label">{item.label}</span>
-            </motion.div>
-          ))}
-        </div>
-        <div className="capability-content showcase-content">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={activeIndex}
-              className="showcase-content-body"
-              initial={{ opacity: 0, x: 12 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -12 }}
-              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <div className="showcase-content-text">
-                <div className="showcase-content-header">
-                  <motion.span
-                    className="showcase-badge"
-                    style={{ color: active.color }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.05 }}
+          style={{
+            '--showcase-accent': active.color,
+            '--showcase-content-bg': getCardBg(active.color),
+          }}
+        >
+          <div className="capabilities-sidebar showcase-nav" role="list" aria-label="Area of capabilities">
+            {cases.map((item, index) => (
+              <motion.div
+                key={item.id}
+                role="listitem"
+                className={`showcase-nav-item ${index === activeIndex ? 'active' : ''}`}
+                style={index === activeIndex ? { '--item-accent': item.color } : undefined}
+                aria-current={index === activeIndex ? 'true' : undefined}
+                initial={false}
+                animate={{ backgroundColor: 'transparent' }}
+                transition={{ duration: 0.2 }}
+              >
+                <span className="showcase-nav-label">{item.label}</span>
+              </motion.div>
+            ))}
+          </div>
+          <div className="capability-content showcase-content">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeIndex}
+                className="showcase-content-body"
+                initial={{ opacity: 0, x: 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -12 }}
+                transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                <div className="showcase-content-text">
+                  <div className="showcase-content-header">
+                    <motion.span
+                      className="showcase-badge"
+                      style={{ color: active.color }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.05 }}
+                    >
+                      {active.label}
+                    </motion.span>
+                    <motion.div
+                      className="showcase-tags"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.08 }}
+                    >
+                      {active.tags.map((tag, i) => (
+                        <motion.span
+                          key={tag.slug}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1 + i * 0.03 }}
+                        >
+                          <Link
+                            to={`/services/${tag.slug}`}
+                            className="showcase-tag showcase-tag-link"
+                          >
+                            {tag.label}
+                          </Link>
+                        </motion.span>
+                      ))}
+                    </motion.div>
+                  </div>
+                  <motion.h3
+                    className="showcase-content-title"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.12 }}
                   >
-                    {active.label}
-                  </motion.span>
-                  <motion.div
-                    className="showcase-tags"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.08 }}
+                    {active.title}
+                  </motion.h3>
+                  <motion.p
+                    className="showcase-content-description"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.16 }}
                   >
-                    {active.tags.map((tag, i) => (
-                      <motion.span
-                        key={tag}
-                        className="showcase-tag"
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 + i * 0.03 }}
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </motion.div>
+                    {active.description}
+                  </motion.p>
                 </div>
-                <motion.h3
-                  className="showcase-content-title"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.12 }}
-                >
-                  {active.title}
-                </motion.h3>
-                <motion.p
-                  className="showcase-content-description"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.16 }}
-                >
-                  {active.description}
-                </motion.p>
-              </div>
-              {active.image && (
-                <motion.div
-                  className="showcase-content-image-wrapper"
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.1, duration: 0.3 }}
-                >
-                  <img src={active.image} alt="" className="showcase-content-image" />
-                </motion.div>
-              )}
-            </motion.div>
-          </AnimatePresence>
+                {active.image && (
+                  <motion.div
+                    className="showcase-content-image-wrapper"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1, duration: 0.3 }}
+                  >
+                    <img src={active.image} alt="" className="showcase-content-image" />
+                  </motion.div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
       </div>
     </motion.section>
   );
