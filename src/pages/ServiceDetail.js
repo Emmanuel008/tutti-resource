@@ -258,45 +258,58 @@ function ServiceDetail() {
 
   return (
     <div className="service-detail-page">
-      <div className="service-detail-hero" style={{ borderColor: service.color }}>
-        <div className="service-detail-hero-inner">
-          <Link to="/#services" className="service-detail-back">Back to Services</Link>
-          <motion.span
-            className="service-detail-capability"
-            style={{ color: service.color }}
-            initial={{ opacity: 0, y: 8 }}
+
+      {/* Full-bleed hero */}
+      <div className="service-detail-hero">
+        <img src={service.image} alt={service.title} className="service-detail-hero-bg" />
+        <div className="service-detail-hero-overlay" />
+        <div className="service-detail-hero-content">
+          <motion.div
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
+          >
+            <Link to="/#services" className="service-detail-back">← Back to Services</Link>
+          </motion.div>
+          <motion.span
+            className="service-detail-capability"
+            style={{ background: service.color }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.05 }}
           >
             {service.capability}
           </motion.span>
           <motion.h1
             className="service-detail-title"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
           >
             {service.title}
           </motion.h1>
           <motion.p
             className="service-detail-description"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.45, delay: 0.15 }}
           >
             {service.description}
           </motion.p>
+          <motion.a
+            href="/#contact"
+            className="service-detail-hero-cta"
+            style={{ background: service.color }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.22 }}
+          >
+            Get in Touch
+          </motion.a>
         </div>
-        <motion.div
-          className="service-detail-image-wrap"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <img src={service.image} alt={service.title} className="service-detail-image" />
-        </motion.div>
       </div>
 
+      {/* Body content */}
       <div className="service-detail-body">
         <h2 className="service-detail-what">What we offer</h2>
         <ul className="service-detail-list">

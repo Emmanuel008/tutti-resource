@@ -1,7 +1,7 @@
 .App {
   min-height: 100vh;
   background: #ffffff;
-  color: #1a1a1a;
+  color: #1C2C4D;
   display: flex;
   flex-direction: column;
 }
@@ -26,5 +26,5 @@
 .App-main p {
   margin: 0;
   line-height: 1.6;
-  color: rgba(26, 26, 26, 0.9);
+  color: rgba(28, 44, 77, 0.9);
 }

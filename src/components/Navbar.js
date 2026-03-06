@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -13,24 +16,31 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
 
+  // If already on home page, smooth-scroll to anchor.
+  // If on another page, navigate home then scroll after load.
+  const handleAnchorClick = (e, hash) => {
+    e.preventDefault();
+    closeMenu();
+    if (location.pathname === '/') {
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/' + hash);
+    }
+  };
+
   return (
     <nav className="navbar" role="navigation" aria-label="Main">
       <div className="navbar-inner">
-        <a href="/" className="navbar-brand" onClick={closeMenu}>
+        <Link to="/" className="navbar-brand" onClick={closeMenu}>
           Tutti Resource
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -49,10 +59,18 @@ function Navbar() {
           id="navbar-menu"
           className={`navbar-links ${menuOpen ? 'navbar-links-open' : ''}`}
         >
-          <li><a href="/" onClick={closeMenu}>Home</a></li>
-          <li><a href="#about" onClick={closeMenu}>About</a></li>
-          <li><a href="#services" onClick={closeMenu}>Services</a></li>
-          <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+          <li>
+            <Link to="/" onClick={closeMenu}>Home</Link>
+          </li>
+          <li>
+            <a href="#about" onClick={(e) => handleAnchorClick(e, '#about')}>About</a>
+          </li>
+          <li>
+            <a href="#services" onClick={(e) => handleAnchorClick(e, '#services')}>Services</a>
+          </li>
+          <li>
+            <a href="#contact" onClick={(e) => handleAnchorClick(e, '#contact')}>Contact</a>
+          </li>
         </ul>
       </div>
 

@@ -32,9 +32,9 @@
   max-width: 56%;
   background: linear-gradient(
     105deg,
-    rgba(15, 23, 42, 0.92) 0%,
-    rgba(30, 41, 59, 0.75) 45%,
-    rgba(51, 65, 85, 0.35) 75%,
+    rgba(28, 44, 77, 0.92) 0%,
+    rgba(28, 44, 77, 0.75) 45%,
+    rgba(28, 44, 77, 0.35) 75%,
     transparent 100%
   );
   z-index: 1;
@@ -78,7 +78,7 @@
 }
 
 .hero-title-accent {
-  color: #c9a86c;
+  color: #DC143C;
 }
 
 .hero-subline {
@@ -93,7 +93,7 @@
   margin: 0 0 1.25rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(201, 168, 108, 0.95);
+  color: rgba(220, 20, 60, 0.95);
   letter-spacing: 0.06em;
 }
 
@@ -110,25 +110,25 @@
   padding: 0.85rem 1.75rem;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #0f172a;
-  background: #c9a86c;
+  color: #ffffff;
+  background: #DC143C;
   border: none;
   border-radius: 6px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(201, 168, 108, 0.45);
+  box-shadow: 0 4px 14px rgba(220, 20, 60, 0.45);
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hero-cta:hover {
-  background: #d4b87a;
+  background: #c01235;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(201, 168, 108, 0.5);
+  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.5);
 }
 
 .hero-cta:focus-visible {
-  outline: 2px solid #c9a86c;
+  outline: 2px solid #DC143C;
   outline-offset: 2px;
 }
 
@@ -144,9 +144,9 @@
     height: 100%;
     background: linear-gradient(
       180deg,
-      rgba(15, 23, 42, 0.92) 0%,
-      rgba(30, 41, 59, 0.85) 50%,
-      rgba(15, 23, 42, 0.95) 100%
+      rgba(28, 44, 77, 0.92) 0%,
+      rgba(28, 44, 77, 0.85) 50%,
+      rgba(28, 44, 77, 0.95) 100%
     );
   }
 

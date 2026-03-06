@@ -4,7 +4,7 @@
   padding-bottom: 4rem;
   min-height: 400vh;
   background: #ffffff;
-  color: #1a1a1a;
+  color: #1C2C4D;
   font-family: Outfit, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   position: relative;
   overflow: visible;
@@ -20,7 +20,7 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 600;
   text-align: center;
-  color: #1a1a1a;
+  color: #1C2C4D;
   position: relative;
   z-index: 1;
 }
@@ -78,7 +78,7 @@
   background: var(--card-bg, #f8fafc);
   border-radius: 0 20px 20px 0;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-left: 3px solid var(--card-accent, #a88b4a);
+  border-left: 3px solid var(--card-accent, #DC143C);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   transition: transform 0.35s ease, box-shadow 0.35s ease, z-index 0s;
 }
@@ -103,7 +103,7 @@
   padding: 0.5rem 0.25rem;
   background: transparent;
   border: none;
-  color: rgba(26, 26, 26, 0.5);
+  color: rgba(28, 44, 77, 0.5);
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 400;
@@ -113,7 +113,7 @@
 }
 
 .showcase-nav-item.active {
-  color: #1a1a1a;
+  color: #1C2C4D;
   font-weight: 700;
 }
 
@@ -182,7 +182,7 @@
   display: inline-block;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--card-accent, #a88b4a);
+  color: var(--card-accent, #DC143C);
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -199,7 +199,7 @@
   padding: 0.35rem 0.75rem;
   font-size: 0.8rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #1C2C4D;
   border: 1px solid var(--card-accent, rgba(0, 0, 0, 0.15));
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
@@ -213,9 +213,9 @@
 }
 
 .showcase-tag-link:hover {
-  background: var(--showcase-accent, #c9a86c);
+  background: var(--showcase-accent, #DC143C);
   color: #ffffff;
-  border-color: var(--showcase-accent, #c9a86c);
+  border-color: var(--showcase-accent, #DC143C);
   transform: translateY(-1px);
 }
 
@@ -224,14 +224,14 @@
   font-size: clamp(1.15rem, 2vw, 1.4rem);
   font-weight: 700;
   line-height: 1.35;
-  color: #1a1a1a;
+  color: #1C2C4D;
 }
 
 .showcase-content-description {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
-  color: rgba(26, 26, 26, 0.88);
+  color: rgba(28, 44, 77, 0.88);
 }
 
 @media (max-width: 768px) {

@@ -1,7 +1,7 @@
 .impact {
   padding: 2.5rem 1.5rem;
   background: #fafafa;
-  color: #1a1a1a;
+  color: #1C2C4D;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -16,14 +16,14 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #1a1a1a;
+  color: #1C2C4D;
 }
 
 .impact-description {
   margin: 0 0 2rem;
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(26, 26, 26, 0.88);
+  color: rgba(28, 44, 77, 0.88);
 }
 
 .impact-stats {
@@ -43,7 +43,7 @@
 }
 
 .impact-stat:hover {
-  border-color: rgba(201, 168, 108, 0.3);
+  border-color: rgba(220, 20, 60, 0.3);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
@@ -51,7 +51,7 @@
   display: block;
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
-  color: #a88b4a;
+  color: #DC143C;
   letter-spacing: -0.02em;
   line-height: 1.2;
   margin-bottom: 0.35rem;
@@ -59,7 +59,7 @@
 
 .impact-stat-label {
   font-size: 0.9rem;
-  color: rgba(26, 26, 26, 0.8);
+  color: rgba(28, 44, 77, 0.8);
   font-weight: 500;
 }
 

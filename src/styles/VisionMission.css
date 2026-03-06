@@ -1,7 +1,7 @@
 .vision-mission {
   padding: 2rem 1.5rem;
   background: #ffffff;
-  color: #1a1a1a;
+  color: #1C2C4D;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -11,14 +11,14 @@
   font-weight: 600;
   letter-spacing: 0.03em;
   text-align: center;
-  color: #1a1a1a;
+  color: #1C2C4D;
 }
 
 .vision-mission-subtitle {
   margin: 0 0 1.5rem;
   font-size: 0.9rem;
   text-align: center;
-  color: rgba(26, 26, 26, 0.65);
+  color: rgba(28, 44, 77, 0.65);
   letter-spacing: 0.02em;
 }
 
@@ -55,12 +55,12 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, #c9a86c 0%, #a88b4a 100%);
+  background: linear-gradient(180deg, #DC143C 0%, #a01030 100%);
   border-radius: 12px 0 0 12px;
 }
 
 .vm-block:hover {
-  border-color: rgba(168, 139, 74, 0.35);
+  border-color: rgba(220, 20, 60, 0.35);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -71,8 +71,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 0.6rem;
-  color: #c9a86c;
-  background: rgba(201, 168, 108, 0.12);
+  color: #DC143C;
+  background: rgba(220, 20, 60, 0.1);
   border-radius: 8px;
 }
 
@@ -86,14 +86,14 @@
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #1a1a1a;
+  color: #1C2C4D;
 }
 
 .vm-block-text {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.5;
-  color: rgba(26, 26, 26, 0.88);
+  color: rgba(28, 44, 77, 0.88);
 }
 
 .vm-vision .vm-block-icon {
@@ -118,7 +118,7 @@
   list-style: none;
   font-size: 0.85rem;
   line-height: 1.45;
-  color: rgba(26, 26, 26, 0.88);
+  color: rgba(28, 44, 77, 0.88);
 }
 
 .vm-mission-list li {
@@ -142,7 +142,7 @@
   width: 1.25rem;
   height: 1.25rem;
   margin-top: 0.2rem;
-  color: #c9a86c;
+  color: #DC143C;
 }
 
 .vm-check-icon {

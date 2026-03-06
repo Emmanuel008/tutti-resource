@@ -1,8 +1,71 @@
+import { useEffect } from 'react';
 import '../styles/Footer.css';
 
 const currentYear = new Date().getFullYear();
 
+const rafikiConfig = {
+  apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaUlkIjoiMTc3Mjc4MDY5Mzk4NS03YmQ3YTBkZSIsInVzZXJJZCI6IjE3NzI3ODAzMzc5MTUtMmNkNTlhN2QiLCJ0eXBlIjoid2lkZ2V0IiwiaWF0IjoxNzcyNzgwNjk3LCJleHAiOjE4MDQzMTY2OTd9.jld6CQjYA0xquWgKw9ERYGjUfKhcDeUWqPxZo-enOO4',
+  assistantId: '1772780693985-7bd7a0de',
+  apiEndpoint: 'https://rafikiaicompany.com',
+  autoFetchConfig: true,
+  autoRefreshInterval: 0,
+  fallbackConfig: {
+    title: 'Tutti Resource',
+    subtitle: 'Customer Care',
+    welcomeMessage: 'Hello! How can I assist you Today?',
+    logoUrl: 'https://rafikiaicompany.com/uploads/widget-logos/1772780658932-icon.png',
+    primaryColor: '#1c2c4d',
+    position: 'bottom-right',
+    showBranding: true,
+    allowTranscript: true,
+    allowAttachments: false,
+  },
+  debug: false,
+};
+
+function initRafikiWidget() {
+  if (window.RafikiChat && typeof window.RafikiChat.init === 'function') {
+    try { window.RafikiChat.init(rafikiConfig); } catch (e) { console.error('Rafiki init error', e); }
+    return;
+  }
+
+  const existingScript = document.querySelector('script[src*="chat-widget.js"]');
+  if (existingScript) {
+    const check = setInterval(() => {
+      if (window.RafikiChat && typeof window.RafikiChat.init === 'function') {
+        clearInterval(check);
+        try { window.RafikiChat.init(rafikiConfig); } catch (e) { console.error('Rafiki init error', e); }
+      }
+    }, 100);
+    setTimeout(() => clearInterval(check), 10000);
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.src = `https://rafikiaicompany.com/widget/chat-widget.js?v=latest&t=${Date.now()}`;
+  script.async = true;
+  script.defer = true;
+
+  let retries = 0;
+  function tryInit() {
+    if (window.RafikiChat && typeof window.RafikiChat.init === 'function') {
+      try { window.RafikiChat.init(rafikiConfig); } catch (e) { console.error('Rafiki init error', e); }
+    } else if (retries < 10) {
+      retries++;
+      setTimeout(tryInit, 200);
+    }
+  }
+
+  script.onload = () => setTimeout(tryInit, 100);
+  script.onerror = () => console.error('Rafiki Chat Widget: Failed to load script.');
+  (document.head || document.body).appendChild(script);
+}
+
 function Footer() {
+  useEffect(() => {
+    initRafikiWidget();
+  }, []);
+
   return (
     <footer className="footer" id="contact">
       <div className="footer-inner">
